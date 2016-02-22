@@ -1,0 +1,42 @@
+table {
+  border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+    float:
+}
+
+#currentTurn {
+    font-size: 30px;
+    text-align: center;
+}
+
+#reset {
+    background-color:grey;
+    font-size: 30px;
+    margin: auto;
+    display: block;
+
+}
+
+td > button {
+    background-color:white ;
+    border: none;
+    padding: 60px;
+    font-size: 30px;
+    margin:auto;
+    display:block;
+}
+
+td > button.player1:hover {
+    background-color:lightpink;
+    border: dashed;
+    border-color: white;
+}
+
+td > button.player2:hover {
+    background-color:lightblue;
+    border: dashed;
+    border-color: white;
+}

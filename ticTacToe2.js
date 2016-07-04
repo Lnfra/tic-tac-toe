@@ -12,14 +12,14 @@ $(document).ready(function(){
         [null, null, null]];
 
     //Assign all buttons in the board with the event listener
-    $('table button').on('click', changeColor);
+    $('table button').on('click', executeMove);
 
     //Initialize the reset button
     $('#reset').on('click', function(){
        location.reload();
     });
 
-    function changeColor(event) {
+    function executeMove(event) {
         console.log('clicked');
         console.log(event.target.id);
         var buttonId = event.target.id;
@@ -154,7 +154,3 @@ $(document).ready(function(){
         }
     }
 });
-
-
-
-

@@ -13,7 +13,7 @@ function init() {
     var buttons = document.querySelectorAll('table button');
 
     for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', changeColor);
+        buttons[i].addEventListener('click', executeMove);
     }
 
     //Initialize the reset button
@@ -22,25 +22,22 @@ function init() {
         location.reload();
     });
 
-    function changeColor(event) {
-        console.log('clicked');
-        console.log(event.target.id);
-        var buttonId = event.target.id;
-        var button = document.getElementById(buttonId);
+    function executeMove(event) {
+        var button =  event.target;
         //Check if this button has not been clicked before
-        var isUnclickedButton = getButtonState(buttonId) === null;
+        var isUnclickedButton = getButtonState(button.id) === null;
 
-        if (currentPlayer == 'Player1' && isUnclickedButton) {
+        if (currentPlayer === 'Player1' && isUnclickedButton) {
             button.innerHTML = 'O';
             button.style.background = 'red';
-            setMove('O', buttonId);
+            setMove('O', button.id);
             checkForWinner();
             switchPlayerTo('Player2');
 
-        } else if (currentPlayer == 'Player2' && isUnclickedButton) {
+        } else if (currentPlayer === 'Player2' && isUnclickedButton) {
             button.innerHTML = 'X';
             button.style.background = 'blue';
-            setMove('X', buttonId);
+            setMove('X', button.id);
             checkForWinner();
             switchPlayerTo('Player1');
         } else {
@@ -111,7 +108,7 @@ function init() {
     }
 
     function alertWinner(buttonValue){
-        if(buttonValue == 'O'){
+        if(buttonValue === 'O'){
             alert('Game Over, Player 1 wins!');
             location.reload();
         }else {
